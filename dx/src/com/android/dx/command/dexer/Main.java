@@ -27,6 +27,7 @@ import com.android.dx.cf.direct.ClassPathOpener.FileNameFilter;
 import com.android.dx.cf.direct.DirectClassFile;
 import com.android.dx.cf.direct.StdAttributeFactory;
 import com.android.dx.cf.iface.ParseException;
+import com.android.dx.command.DxConsole;
 import com.android.dx.command.UsageException;
 import com.android.dx.dex.DexOptions;
 import com.android.dx.dex.cf.CfOptions;
@@ -261,7 +262,7 @@ public class Main {
      * @return 0 if success &gt; 0 otherwise.
      */
     public static int run(Arguments arguments) throws IOException {
-        return new Main(new DxContext()).runDx(arguments);
+        return new Main(new DxContext(DxConsole.out, DxConsole.err)).runDx(arguments);
     }
 
     public int runDx(Arguments arguments) throws IOException {
